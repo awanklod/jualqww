@@ -140,7 +140,7 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/vmess/${user}
 fi
-DATADB=$(cat /etc/xray/config.json | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/xray/config.json | grep "^###" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
 fi
